@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+// ----------------------
+// == Site settings
+// ----------------------
+
+// Fonts
+$font-textos: Arial, Helvetica, sans-serif;
+$font-titulos: Georgia, serif;
+$font-roboto: 'Roboto', sans-serif;
+$font-arial: arial, sans-serif;
+
+// = Colors
+// -----------------------------
+
+// Graphic chart
+$red: #c71c22;
+$blue: #0a6cb3;
+$cinza: #363636;
+$cor-destaque: #fc920a;
+
+$facebook: #3b5998;
+$twitter: #43bfe1;
+
+$color-titulos: $blue;
+$color-textos: $cinza;
+
+// Text
+$color-text-base: #212121;
+$default-font-size: 16px;// !important
+
+// link
+$color-link: $color-titulos;
+$color-link-hover: darken($color-titulos, 10%);
+
+// Mixin Placeholder
+$color-mixin-placeholder: #cdcdcd;
+
+// Selection
+$color-selection: $color-titulos;
+
+// Btn
+$bg-btn: #555;
+$bg-btn-hover: darken($bg-btn, 10%);
+$clr-btn: #212121;
+$clr-btn-hover: darken($clr-btn, 10%);
+
+// = Grid
+// -----------------------------
+
+// Max width wrapper
+$page-width: 1200px;
+
+// = Responsive
+// -----------------------------
+
+$width-desktop: 75em; // 1200/16
+$width-tablet: 62em; // 992/16
+$width-mobile: 48em; // 768/16
+
+
+
+// = Color Selection
+// -----------------------------
+
+$selection-color: #fff;
+$selection-background: #333;
+
+$transition-in: 0.3s;
+$transition-out: 0.3s;

@@ -1,0 +1,23 @@
+/* ==|====================
+   Module/Icons
+   ======================= */
+
+@import "compass/utilities/sprites";
+
+$sprites: sprite-map("icons/*.png", $spacing: 20px);
+/* $sprites2x: sprite-map("icons-2x/*.png", $spacing: 20px); */
+
+@mixin sprite-background($name, $display: inline-block) {
+    display: $display;
+    background-repeat: no-repeat;
+    background-image: sprite-url($sprites);
+    background-position: sprite-position($sprites, $name);
+    height: image-height(sprite-file($sprites, $name));
+    width: image-width(sprite-file($sprites, $name));
+
+/*     @media (-webkit-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5) {
+        background-image: sprite-url($sprites2x);
+        background-size: ceil(image-width(sprite-path($sprites2x)) / 2) auto;
+        background-position: 0 round(nth(sprite-position($sprites2x, $name), 2) / 2);
+    } */
+}

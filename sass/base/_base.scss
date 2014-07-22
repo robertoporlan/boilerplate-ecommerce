@@ -1,0 +1,82 @@
+/* ===========================
+   Base
+   =========================== */
+
+
+/* FTW */
+*,
+*:before,
+*:after {
+    @include box-sizing(border-box);
+}
+
+/* Maujor Sticky Footer */
+html, body { height:100%; }
+html {
+    overflow-y: scroll;
+}
+body {
+    font-family: $font-textos;
+    color: #aaa;
+    padding: 0;
+    text-align: left;
+    background: #fff;
+}
+
+.lt-ie8 {
+    /* less than IE8 | Really don't care */
+    body { overflow-y: hidden; }
+}
+.page-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+}
+.page-header {
+    width: 100%;
+    height: 100px;
+    background: #c1c1c1;
+}
+.page-center {
+    position: relative;
+    width: $page-width;
+    margin: 0 auto;
+}
+.page-content {
+    /* footer height */
+    padding-bottom: 70px;
+ }
+.page-main {
+    position: relative;
+    width: 100%;
+    padding-top: 10px;
+}
+.page-footer {
+    clear: both;
+    width: 100%;
+    height: 70px;
+    padding-top: 15px;
+    text-align: center;
+}
+
+
+::-moz-selection {
+    background: $selection-background;
+    color: $selection-color;
+    text-shadow: none;
+}
+::selection {
+    background: $selection-background;
+    color: $selection-color;
+    text-shadow: none;
+}
+
+
+
+a,
+button {
+    @include transition( all 250ms ease-out);
+    &:hover {
+        @include transition( all 350ms ease-out);
+    }
+}
