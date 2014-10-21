@@ -3,15 +3,11 @@
     'use strict';
 
     module.exports = function(grunt) {
-        var config, environment, errorHandler, name, open, pkg, taskArray, taskName, tasks, verbose, _results;
+        var config, errorHandler, name, pkg, taskArray, taskName, tasks, verbose, _results;
 
         pkg = grunt.file.readJSON('package.json');
 
-        environment = process.env.VTEX_HOST || 'vtexcommerce';
-
         verbose = grunt.option('verbose');
-
-        open = pkg.accountName ? "http://" + pkg.accountName + ".vtexlocal.com.br/?debugcss=true&debugjs=true&refresh=true" : void 0;
 
         errorHandler = function(err, req, res, next) {
             var errString, _ref, _ref1;
@@ -56,15 +52,11 @@
                     files: [{
                         expand: true,
                         cwd: 'src/scripts/vendor',
-                        src: ['modernizr.min.js'],
+                        src: ['jquery-1.8.3.min.js'],
                         dest: 'build/arquivos'
                     },{
-                        'build/arquivos/luxe.min.js': [
-                            'src/scripts/vendor/jquery.mCustomScrollbar.js',
-                            'src/scripts/vendor/owl.carousel.min.js',
-                            'src/scripts/vendor/royal.js',
-                            'src/scripts/vendor/jqinstapics.min.js',
-                            'src/scripts/luxe.js',
+                        'build/arquivos/projeto.min.js': [
+                            'src/scripts/projeto.js',
                             'src/scripts/app/constructors/**/*.js',
                             'src/scripts/app/modules/**/*.js',
                             'src/scripts/app/pages/**/*.js',
@@ -81,31 +73,6 @@
                         src: ['**/*.{png,jpg,gif,ico}'],
                         dest: 'build/arquivos/'
                     }]
-                }
-            },
-            connect: {
-                http: {
-                    options: {
-                        hostname: "*",
-                        open: open,
-                        port: process.env.PORT || 80,
-                        middleware: [
-                            require('connect-livereload')({
-                                disableCompression: true
-                            }),
-                            require('connect-http-please')({
-                                replaceHost: (function(h) {
-                                    return h.replace("vtexlocal", environment);
-                                })
-                            }, {
-                                verbose: verbose
-                            }),
-                            require('connect-tryfiles')('**', "http://portal." + environment + ".com.br:80", {
-                                cwd: 'build/',
-                                verbose: verbose
-                            }), require('connect')["static"]('./build/'), errorHandler
-                        ]
-                    }
                 }
             },
             watch: {
@@ -142,7 +109,7 @@
             min: ['uglify', 'cssmin'],
             dist: ['build', 'min'],
             test: [],
-            "default": ['build', 'connect', 'watch'],
+            "default": ['build', 'watch'],
             devmin: ['build', 'min', 'connect:http:keepalive']
         };
 
